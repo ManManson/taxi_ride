@@ -48,3 +48,4 @@ Test cases include the following:
 * The program does not check for invalid filter conditions (e.g. `start_date` is ahead of `end_date`) or filters that are known to yield empty results (e.g. `start_date == end_date`), in such cases the implementation should return an error or empty result as early as possible and avoid arrow computations at all.
 * There are some result transformations (`optional<ExecBatch> -> ExecBatch -> RecordBatch`), that are convenient and improve code readability a little bit, but can be avoided to improve performance.
 * Plan execution in Apache Arrow is async, and it is used in the implementation only partially, the `AverageDistances` interface is synchronous. To improve parallelism it would be beneficial to make `AverageDistances::GetAverageDistances` asynchronous (i.e. return a `Future`).
+* The code uses low-level `assert()`:s and `.ValueOrDie()` all over the place. Need to introduce proper exception handling.

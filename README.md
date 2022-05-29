@@ -3,6 +3,8 @@
 
 ## How to build
 
+NOTE: the build was tested using Fedora 36 distribution and build instructions are written assuming one uses fc36 as the build/run system.
+
 At first, you will need to build [Apache Arrow](https://github.com/apache/arrow/) libraries and install it (either locally or globally):
 
 ```sh
